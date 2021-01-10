@@ -10,22 +10,20 @@ class CategoryList extends React.Component {
         categories:[
             {categoryId:1,categoryName:"Category1"},
             {categoryId:2,categoryName:"Category2"},
-        ],
-        currentCategory:''
+        ]
+        //currentCategory:''
     }
-    changeCategory=(category)=>{
-        this.setState({currentCategory:category.categoryName})
-    }
+    
     render() { 
         return (  <div>
             <h3>{this.props.info.title} {this.state.counter} </h3>
             <ListGroup>
                 {
                     this.state.categories.map(category=>
-                    <ListGroupItem onClick={()=>this.changeCategory(category)} key={category.categoryId}>{category.categoryName}</ListGroupItem>)
+                    <ListGroupItem onClick={()=>this.props.changeCategory(category)} key={category.categoryId}>{category.categoryName}</ListGroupItem>)
                 }
           </ListGroup>
-          <h4>{this.state.currentCategory}</h4>
+          <h4>{this.props.currentCategory}</h4>
         </div> );
     }
 }
