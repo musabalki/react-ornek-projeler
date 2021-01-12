@@ -5,6 +5,8 @@ import {
     DropdownMenu,
     DropdownItem, Badge,NavItem,NavLink
 } from 'reactstrap';
+import { Link } from 'react-router-dom'
+
 class CartSummary extends Component {
     state = {}
     renderSummary() {
@@ -26,7 +28,7 @@ class CartSummary extends Component {
                     }
                     <DropdownItem divider />
                     <DropdownItem>
-                        Reset
+                        <Link to="/cart">Sepete Git</Link>
               </DropdownItem>
                 </DropdownMenu>
             </UncontrolledDropdown>

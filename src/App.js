@@ -5,6 +5,9 @@ import ProductList from './ProductList';
 import { Container, Row, Col } from "reactstrap";
 //import { render } from '@testing-library/react';
 import React from 'react';
+import {Switch,Route} from "react-router-dom"
+import NotFound from './NotFound';
+import CartList from './CartList';
 class App extends React.Component {
   state = {
     currentCategory: '',
@@ -65,7 +68,16 @@ class App extends React.Component {
               <CategoryList currentCategory={this.state.currentCategory} changeCategory={this.changeCategory} info={categoryInfo}></CategoryList>
             </Col>
             <Col xs="9">
-              <ProductList addToCart={this.addToCart} currentCategory={this.state.currentCategory} products={this.state.products} info={productInfo}></ProductList>
+              <Switch>
+                <Route exact path="/" render={
+                  props=>(<ProductList {...props} addToCart={this.addToCart} currentCategory={this.state.currentCategory} products={this.state.products} info={productInfo}></ProductList>)
+                }/>
+                <Route exact path="/cart" render={
+                  props=>(<CartList {...props} removeFromCart={this.removeFromCart} cart={this.state.cart}></CartList>)
+                } />
+                <Route component={NotFound} />
+              </Switch>
+
             </Col>
           </Row>
         </Container>
