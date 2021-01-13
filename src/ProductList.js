@@ -1,10 +1,12 @@
 import React from 'react';
-import {Table,Button,} from "reactstrap";
+import {Table,Button, Form,} from "reactstrap";
+import FormDemo1 from "./FormDemo1"
 class ProductList extends React.Component {
     
     render() {
         return (
             <div>
+               
                 <h3>{this.props.info.title} - {this.props.currentCategory}</h3>
                 <Table>
                     <thead>
